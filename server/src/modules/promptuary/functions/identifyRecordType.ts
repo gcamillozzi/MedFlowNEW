@@ -24,7 +24,7 @@ function identifyRecordType(fullResource): string {
   }
   
   if (resourceType === 'PlanDefinition') {
-    return 'D'
+    return 'PD'
   }
   
   return 'U'

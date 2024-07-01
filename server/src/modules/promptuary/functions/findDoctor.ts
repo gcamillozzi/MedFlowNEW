@@ -1,23 +1,17 @@
-function findDoctor(bundleBody, fullResource): any {
-  const resourceDoctorUuid = fullResource.resource.requester.reference
+// export function findDoctor(bundleBody : any, fullResource :any): any {
+	
+//     if(fullResource.resource.resourceType == "Practitioner"){
+//       const resourceDoctorUuid = fullResource.resource
+//       return Number(resourceDoctorUuid.identifier[0].value)
+//   }
+// }
+export function findDoctor(bundleBody : any, fullResource :any): any {
+	for (const resource  of fullResource){
+			if(resource.resource.resourceType == "Practitioner"){
+			const resourceDoctorUuid = resource.resource
+			return Number(resourceDoctorUuid.identifier[0].value)
+		}
+	}
+    
 
-  const doctorRole = bundleBody.entry.find(
-    (item) => item.fullUrl === resourceDoctorUuid,
-  )
-
-  const doctor = bundleBody.entry.find(
-    (item) => item.fullUrl === doctorRole.resource.practitioner.reference,
-  )
-
-  if (!doctor) {
-    const practitioner = bundleBody.entry.find(
-      (item) => item.resource.resourceType === 'Practitioner',
-    )
-
-    return practitioner
-  }
-
-  return doctor
 }
-
-export { findDoctor }

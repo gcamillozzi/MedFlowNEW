@@ -9,7 +9,7 @@ export function findHfam(recordType : any, fullResource :any):any {
 					null
 				}
 			}
-		return JSON.stringify(liastaHfam)
+		return liastaHfam.toString()
 	 }else{
 		return null
 	 }

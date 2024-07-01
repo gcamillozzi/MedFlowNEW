@@ -40,7 +40,10 @@ async function executeProcedure_GHAS_PRESCR_MEDFLOW_P(data): Promise<void> {
             '${data.antecedentes_pessoais_p}',
             '${data.hfam_p}',
             '${data.sinais_vitais_p}',
-            '${data.conduta_medica_p}'
+            '${data.conduta_medica_p}',
+            '${data.exame_fisico_p}',
+            '${data.exame_imagem_p}',
+            '${data.exame_lab_p}'
         );
       END;
     `

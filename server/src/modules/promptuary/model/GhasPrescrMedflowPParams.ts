@@ -34,6 +34,9 @@ export class GhasPrescrMedflowPParams {
   hfam_p: string | null
   sinais_vitais_p: string | null
   conduta_medica_p: string | null
+  exame_fisico_p: string | null
+  exame_imagem_p: string | null
+  exame_lab_p: string | null
 
   constructor() {
     this.nr_atendimento_p = null
@@ -71,5 +74,8 @@ export class GhasPrescrMedflowPParams {
     this.hfam_p = null
     this.sinais_vitais_p = null
     this.conduta_medica_p = null
+    this.exame_fisico_p = null
+    this.exame_imagem_p = null
+    this.exame_lab_p = null
   }
 }

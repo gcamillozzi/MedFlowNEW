@@ -1,16 +1,32 @@
+function buildListaHda(lista:any, titulo:any){
+    let listaHda :any= []
+	listaHda.push(titulo)
+	for(let y = 0; y < lista.length; y++){
+		if(lista[y].answer[0].valueBoolean){
+			listaHda.push(lista[y].text)
+			
+		}else{null}
+	}
+	return listaHda
+}
+
 export function findHda (recordType : any, fullResource :any):any {
 	if(recordType === 'A'){
 		if(fullResource.resource.resourceType === "QuestionnaireResponse"){
-		let listaHda :any= []
+		let had:any
+		let array:any = []
+		let newList :any = []
 		for(let i = 0; i < fullResource.resource.item.length ; i++ ){
 				if (fullResource.resource.item[i].linkId.substring(0,3) ===  'hda'){
-					listaHda.push(fullResource.resource.item[i].text) 
+					had = fullResource.resource.item[i].text
+					array = fullResource.resource.item[i].item
+					newList.push(...buildListaHda(array,had))
 				}else{
 					null
 				}
 			}
-		return JSON.stringify(listaHda)
-		//return fullResource.resource.item[1]
+		return newList.toString()
+
 	 }else{
 		return null
 	 }
